@@ -21,11 +21,10 @@
         <ul class="nav navbar-nav">
           <li><a href="?url=adminantrian"><i class="glyphicon glyphicon-user"></i> Antrian Pasien</a></li>
           <li class="active"><a href="?url=adminjadwaldokter"><i class="glyphicon glyphicon-calendar"></i> Jadwal Dokter</a></li>
-          <li><a href="?url=pendaftaran"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
-          <li><a href="?url=alamatkontak"><i class="glyphicon glyphicon-map-marker"></i> Alamat & Kontak</a></li>
+          <li><a href="?url=adminpasien"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a target="_blank" href="?url=admin"><i class="glyphicon glyphicon-user"></i> Login Admin</a></li>
+          <li><a target="_blank" href="?url=admin"><i class="glyphicon glyphicon-log-out"></i> Logout Admin</a></li>
         </ul>
       </div>
     </div>

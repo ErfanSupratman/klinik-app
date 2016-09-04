@@ -33,7 +33,6 @@
         <ul class="nav navbar-nav">
           <li><a href="?"><i class="glyphicon glyphicon-home"></i> Beranda</a></li>
           <li><a href="?url=pendaftaran"><i class="glyphicon glyphicon-user"></i> Pendaftaran Pasien Online</a></li>
-          <li class="active"><a href="?url=alamatkontak"><i class="glyphicon glyphicon-map-marker"></i> Alamat & Kontak</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a target="_blank" href="?url=admin"><i class="glyphicon glyphicon-user"></i> Login Admin</a></li>

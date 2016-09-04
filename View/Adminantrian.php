@@ -21,11 +21,10 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="?url=adminantrian"><i class="glyphicon glyphicon-user"></i> Antrian Pasien</a></li>
           <li><a href="?url=adminjadwaldokter"><i class="glyphicon glyphicon-calendar"></i> Jadwal Dokter</a></li>
-          <li><a href="?url=pendaftaran"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
-          <li><a href="?url=alamatkontak"><i class="glyphicon glyphicon-map-marker"></i> Alamat & Kontak</a></li>
+          <li><a href="?url=adminpasien"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a target="_blank" href="?url=admin"><i class="glyphicon glyphicon-user"></i> Login Admin</a></li>
+          <li><a target="_blank" href="?url=admin"><i class="glyphicon glyphicon-log-out"></i> Logout Admin</a></li>
         </ul>
       </div>
     </div>
@@ -61,34 +60,14 @@
 
       <div class="col-md-4">
         <div class="panel panel-info">
-          <div class="panel-heading" style="text-align:center">JADWAL DOKTER</div>
+          <div class="panel-heading" style="text-align:center">PASIEN TERTANGANI</div>
           <div class="panel-body">
-            <h4>Senin</h4>
-            <h5>Dr. Aaaaa : <time>07:00 s/d 12:00</time> <a href="#" class="glyphicon glyphicon-trash"></a></h5>
-
-            <hr style="margin-top:5px; margin-bottom:5px">
-            <h4>Selas</h4>
-            <h5>Dr. Aaaaa : <time>07:00 s/d 12:00</time> <a href="#" class="glyphicon glyphicon-trash"></a></h5>
-
-            <hr style="margin-top:5px; margin-bottom:5px">
-            <h4>Rabu</h4>
-            <h5>Dr. Aaaaa : <time>07:00 s/d 12:00</time> <a href="#" class="glyphicon glyphicon-trash"></a></h5>
-
-            <hr style="margin-top:5px; margin-bottom:5px">
-            <h4>Kamis</h4>
-            <h5>Dr. Aaaaa : <time>07:00 s/d 12:00</time> <a href="#" class="glyphicon glyphicon-trash"></a></h5>
-
-            <hr style="margin-top:5px; margin-bottom:5px">
-            <h4>Jumat</h4>
-            <h5>Dr. Aaaaa : <time>07:00 s/d 12:00</time> <a href="#" class="glyphicon glyphicon-trash"></a></h5>
-            <hr style="margin-top:5px; margin-bottom:5px">
-            <h4>Sabtu</h4>
-            <h5>Dr. Aaaaa : <time>07:00 s/d 12:00</time> <a href="#" class="glyphicon glyphicon-trash"></a></h5>
-
-            <hr style="margin-top:5px; margin-bottom:5px">
-            <h4>Minggu</h4>
-            <h5>Dr. Aaaaa : <time>07:00 s/d 12:00</time> <a href="#" class="glyphicon glyphicon-trash"></a></h5>
-
+            <h5><a href="#">ID:123456</a> - Ibu. Aaaaa : <time>07:00 s/d 12:00</time>></h5>
+            <h5><a href="#">ID:123456</a> - Ibu. Aaaaa : <time>07:00 s/d 12:00</time>></h5>
+            <h5><a href="#">ID:123456</a> - Ibu. Aaaaa : <time>07:00 s/d 12:00</time>></h5>
+            <h5><a href="#">ID:123456</a> - Ibu. Aaaaa : <time>07:00 s/d 12:00</time>></h5>
+            <h5><a href="#">ID:123456</a> - Ibu. Aaaaa : <time>07:00 s/d 12:00</time>></h5>
+            <h5><a href="#">ID:123456</a> - Ibu. Aaaaa : <time>07:00 s/d 12:00</time>></h5>
           </div>
         </div>
       </div>

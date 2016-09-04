@@ -14,8 +14,6 @@ if(isset($_POST['submitPendaftaran'])) {
     $kelamin = $_POST['jeniskelamin'];
     $telpon = $_POST['nomortelepon'];
     $alamat = $_POST['alamat'];
-    $insertPasien = $pasien->insertPasien($nama, $kelahiran, $kelamin, $telpon, $alamat, 1);
-    echo var_dump($insertPasien);
   }
 }
 
