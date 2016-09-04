@@ -42,7 +42,7 @@
         <div class="panel panel-info">
           <div class="panel-heading" style="text-align:center">PENDAFTARAN PASIEN BARU</div>
           <div class="panel-body">
-            <form class="form-group" action="index.html" method="post">
+            <form class="form-group" action="" method="post">
               <label for="nama">Nama</label>
               <input class="form-control" type="text" name="nama" placeholder="Ketik Nama Anda">
               <hr style="margin-top:5px; margin-bottom:5px">
@@ -96,7 +96,10 @@
       </div>
     </div>
 
-    <?php if(isset($_GET['a'])) { ?>
+    <?php
+    if(isset($_GET['after_register'])) {
+      foreach ($getDataById as $pasienData) {
+      ?>
       <div class="modal fade in" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -106,8 +109,8 @@
             </div>
             <div class="modal-body">
               <form class="form-group" action="index.html" method="post">
-                <label for="nama">Nomor ID Pasien Fuyi</label>
-                <input class="form-control" type="text" name="nama" placeholder="Ketik ID Pasien Fuyi Anda">
+                <label for="idpasien">Nomor ID Pasien Fuyi</label>
+                <input class="form-control" type="text" name="idpasien" value="<?php echo $pasienData['id_pasien']; ?>">
                 <hr style="margin-top:5px; margin-bottom:5px">
                 <center>ATAU</center>
                 <label for="nama">Nomor Telepon</label>
@@ -125,7 +128,7 @@
           </div>
         </div>
       </div>
-      <?php } ?>
+      <?php } } ?>
 
       <?php if(isset($_GET['b'])) { ?>
         <div class="modal fade in" role="dialog">

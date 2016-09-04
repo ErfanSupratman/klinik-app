@@ -3,7 +3,7 @@ error_reporting(0);
 class KoneksiModel {
 
   protected $koneksi;
-  public $nama_database = 'budi_app';
+  public $nama_database = 'darja_app';
   public $driver_server = 'mysql';
   public $server_database = 'localhost';
   public $port_server = '3306';

@@ -46,6 +46,14 @@
                 <th>Periksa</th>
                 <th>Selesai</th>
               </tr>
+              <tr>
+                <th>1</th>
+                <th>Darja</th>
+                <th>2 Desember 2016</th>
+                <th><a class="btn btn-success" href="#">Pasien Datang</a></th>
+                <th><i class="glyphicon glyphicon-ok"></i></th>
+                <th><i class="glyphicon glyphicon-ok"></i></th>
+              </tr>
             </table>
           </div>
         </div>
