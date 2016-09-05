@@ -15,9 +15,9 @@ class PasienModel {
     return $this->panggilKoneksi;
   }
 
-  public function insertPasien($nama, $kelahiran, $kelamin, $telpon, $alamat, $status) {
-    $query = $this->panggilKoneksi->prepare("INSERT INTO pasien_tb (nama,kelahiran,kelamin,telpon,alamat,status) VALUES(?,?,?,?,?,?)");
-    $data = array($nama, $kelahiran, $kelamin, $telpon, $alamat, $status);
+  public function tambahPasien($nama, $kelahiran, $kelamin, $telpon, $alamat, $status, $sekarang) {
+    $query = $this->panggilKoneksi->prepare("INSERT INTO pasien_tb (nama,kelahiran,kelamin,telpon,alamat,status_pasien,sekarang) VALUES(?,?,?,?,?,?,?)");
+    $data = array($nama, $kelahiran, $kelamin, $telpon, $alamat, $status, $sekarang);
     $query->execute($data);
     $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)
     return $result;
@@ -38,36 +38,34 @@ class PasienModel {
     return $result;
   }
 
-  //
-
-  public function updatePenyakit($nama_penyakit, $penyebab, $keterangan, $photo, $solusi, $id) {
-    $query = $this->panggilKoneksi->prepare("UPDATE penyakit_tb SET nama_penyakit = ?, penyebab = ?, keterangan = ?, photo = ?, solusi = ? WHERE id_penyakit = ?");
-    $data = array($nama_penyakit, $penyebab, $keterangan, $photo, $solusi, $id);
-    $query->execute($data);
-    $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)
-    return $result;
-  }
-
-  public function hapusPenyakit($id_penyakit) {
-    $query = $this->panggilKoneksi->prepare("DELETE FROM penyakit_tb WHERE id_penyakit = ?");
-    $data = array($id_penyakit);
-    $query->execute($data);
-    $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)
-    return $result;
-  }
-
-  public function dataPenyakit() {
-    $query = $this->panggilKoneksi->prepare("SELECT * FROM penyakit_tb");
+  public function getDataPasien() {
+    $query = $this->panggilKoneksi->prepare("SELECT * FROM pasien_tb WHERE status_pasien = 1");
     $query->execute();
     $result = $query->fetchAll();
     return $result;
   }
 
-  public function dataPenyakitBy($id_penyakit) {
-    $query = $this->panggilKoneksi->prepare("SELECT * FROM penyakit_tb WHERE id_penyakit = ?");
-    $data = array($id_penyakit);
+  public function getDataByTelpon($telpon) {
+    $query = $this->panggilKoneksi->prepare("SELECT * FROM pasien_tb WHERE telpon = ?");
+    $data = array($telpon);
     $query->execute($data);
-    $result = $query->fetchAll();
+    $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)
+    return $result;
+  }
+
+  public function cekDataById($id) {
+    $query = $this->panggilKoneksi->prepare("SELECT * FROM pasien_tb WHERE id_pasien = ?");
+    $data = array($id);
+    $query->execute($data);
+    $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)
+    return $result;
+  }
+
+  public function ubahPasien($nama, $kelahiran, $kelamin, $telpon, $alamat, $id_pasien) {
+    $query = $this->panggilKoneksi->prepare("UPDATE pasien_tb SET nama = ?, kelahiran = ?, kelamin = ?, telpon = ?, alamat = ? WHERE id_pasien = ?");
+    $data = array($nama, $kelahiran, $kelamin, $telpon, $alamat, $id_pasien);
+    $query->execute($data);
+    $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)
     return $result;
   }
 }

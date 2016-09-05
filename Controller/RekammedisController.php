@@ -7,9 +7,9 @@ if(isset($_SESSION['admin'])) {
   $sessiSt = $sessi[1];
 
   if($sessiSt == 1) {
-    //header('location: ?url=adminantrian');
+    header('location: ?url=adminantrian');
   } else {
-    header('location: ?url=rekammedis');
+    //header('location: ?url=rekammedis');
   }
 
   include_once 'Model/AntriModel.php';
@@ -24,33 +24,18 @@ if(isset($_SESSION['admin'])) {
   $bulan = $sekarang[1];
   $tahun = $sekarang[0];
 
-  $getAntriByHariIni = $antriModel->getAntriByHariIni($tanggal, $bulan, $tahun);
+  $dokterGetPasienByHariIni = $antriModel->getPasienOkToday($tanggal, $bulan, $tahun, 2, 1, 1);
 
   $getPasienOkToday = $antriModel->getPasienOkToday($tanggal, $bulan, $tahun, 2, 2, 2);
 
-  foreach ($getAntriByHariIni as $pasienId) {
+  foreach ($dokterGetPasienByHariIni as $pasienId) {
     $getDataById = $pasienModel->getDataById($pasienId['id_pasien']);
     foreach ($getDataById as $value) {
       $nama[] = $value;
     }
   }
 
-  if(isset($_GET['datang'])) {
-    if(empty($_GET['datang'])) {
-      header('location: ?url=adminantrian');
-    } else {
-      $id_antrian = $_GET['datang'];
-      $skrng = date('Y-m-d h:i:s');
-      $ubahDatang = $antriModel->ubahDatang(2, $skrng, $id_antrian);
-      if($ubahDatang > 0) {
-        header('location: ?url=adminantrian&msg=1');
-      } else {
-        $pesan = 'Error Query ubahDatang';
-      }
-    }
-  }
-
-  include_once 'View/Adminantrian.php';
+  include_once 'View/Rekammedis.php';
 
 } else {
   header('location: ?url=admin');

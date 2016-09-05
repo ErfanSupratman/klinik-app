@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Admin | Jadwal Dokter | Fuyi Healthouse | Acupuncture</title>
+  <title>Admin | Tambah Admin | Fuyi Healthouse | Acupuncture</title>
   <link href="Library/css/bootstrap.min.css" rel="stylesheet">
   <link href="Library/css/navbar-fixed-top.css" rel="stylesheet">
 </head>
@@ -23,8 +23,8 @@
           <li><a href="?url=adminpasien"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin</a></li>
-          <li class="active"><a href="?url=adminjadwaldokter"><i class="glyphicon glyphicon-calendar"></i> Jadwal Dokter</a></li>
+          <li class="active"><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin</a></li>
+          <li><a href="?url=adminjadwaldokter"><i class="glyphicon glyphicon-calendar"></i> Jadwal Dokter</a></li>
           <li><a href="?url=adminlogout"><i class="glyphicon glyphicon-log-out"></i> Logout Admin</a></li>
         </ul>
       </div>
@@ -35,38 +35,22 @@
     <div class="row">
       <div class="col-md-8">
         <div class="panel panel-info">
-          <div class="panel-heading" style="text-align:center">PENDAFTARAN PASIEN BARU</div>
+          <div class="panel-heading" style="text-align:center">PENDAFTARAN ADMIN BARU</div>
           <div class="panel-body">
             <form class="form-group" action="" method="post">
-              <label for="hari">Pilih Hari</label>
-              <select class="form-control" name="hari">
-                <option value="senin">Senin</option>
-                <option value="selasa">Selas</option>
-                <option value="rabu">Rabu</option>
-                <option value="kamis">Kamis</option>
-                <option value="jumat">Jumat</option>
-                <option value="sabtu">Sabtu</option>
-                <option value="minggu">Minggu</option>
-              </select>
-              <label for="namadokter">Nama Dokter</label>
-              <input class="form-control" type="text" name="namadokter" placeholder="Ketik Nama Dokter">
+              <label for="namadokter">Nama</label>
+              <input class="form-control" type="text" name="nama" placeholder="Ketik Nama">
               <hr style="margin-top:5px; margin-bottom:5px">
               <label for="username">Username</label>
               <input class="form-control" type="text" name="username" placeholder="Ketik Username">
               <hr style="margin-top:5px; margin-bottom:5px">
               <label for="password">Password</label>
               <input class="form-control" type="password" name="password" placeholder="Ketik Password">
-              <label for="jadwaljam">Jadwal Jam</label>
-              <input class="form-control" type="time" name="jadwaljam1">
-              <hr style="margin-top:5px; margin-bottom:5px">
-              sampai
-              <hr style="margin-top:5px; margin-bottom:5px">
-              <input class="form-control" type="time" name="jadwaljam2">
               <hr style="margin-top:5px; margin-bottom:5px">
               <b style="color:red"><?php if(isset($pesan)) { echo $pesan; } ?></b>
               <b style="color:green"><?php if(isset($_GET['msg'])) { echo $_GET['msg']; } ?></b>
               <hr>
-              <input class="btn btn-success" type="submit" name="submitRegDokter" value="Daftarkan">
+              <input class="btn btn-success" type="submit" name="submitRegAdmin" value="Daftarkan Admin">
             </form>
           </div>
         </div>
@@ -74,15 +58,14 @@
 
       <div class="col-md-4">
         <div class="panel panel-info">
-          <div class="panel-heading" style="text-align:center">JADWAL DOKTER</div>
+          <div class="panel-heading" style="text-align:center">DATA ADMIN</div>
           <div class="panel-body">
             <?php
             foreach ($getAllAdminData as $dataAdmin) {
               ?>
-              <h5><span style="color: blue"><?php echo ucfirst($dataAdmin['nama']); ?></span> : <time style="color: red"><?php echo ucfirst($dataAdmin['jadwal']); ?></time>
-                <small><a href="?url=adminjadwaldokter&hapus=<?php echo $dataAdmin['id_admin']; ?>" class="glyphicon glyphicon-trash"></a></small>
-              </h5>
-              <hr style="margin-top:5px; margin-bottom:5px">
+              <h4><?php echo ucfirst($dataAdmin['nama']); ?> : <?php if($dataAdmin['jabatan'] == 1) { echo 'Administrator'; } elseif($dataAdmin['jabatan'] == 2) { echo 'Dokter'; }; ?>
+                <small><a href="?url=admintambah&hapus=<?php echo $dataAdmin['id_admin']; ?>" class="glyphicon glyphicon-trash"></a></small>
+              </h4>
               <?php
             }
             ?>

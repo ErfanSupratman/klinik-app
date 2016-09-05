@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Admin | Antrian Pasien | Fuyi Healthouse | Acupuncture</title>
+  <title>Dokter | Periksa Pasien | Fuyi Healthouse | Acupuncture</title>
   <link href="Library/css/bootstrap.min.css" rel="stylesheet">
   <link href="Library/css/navbar-fixed-top.css" rel="stylesheet">
 </head>
@@ -19,12 +19,9 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="?url=adminantrian"><i class="glyphicon glyphicon-user"></i> Antrian Pasien</a></li>
-          <li><a href="?url=adminpasien"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
+          <li class="active"><a href="?url=rekammedis"><i class="glyphicon glyphicon-bookmark"></i> Rekam Medis</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin</a></li>
-          <li><a href="?url=adminjadwaldokter"><i class="glyphicon glyphicon-calendar"></i> Jadwal Dokter</a></li>
           <li><a href="?url=adminlogout"><i class="glyphicon glyphicon-log-out"></i> Logout Admin</a></li>
         </ul>
       </div>
@@ -49,28 +46,18 @@
                 <th>Selesai</th>
               </tr>
               <?php
-              foreach ($getAntriByHariIni as $antriHArian) {
+              foreach ($dokterGetPasienByHariIni as $antriHArian) {
                 ?>
                 <tr>
                   <th><?php echo  $antriHArian['no_antrian']?></th>
                   <th><?php echo  ucfirst($antriHArian['nama'])?></th>
-                  <th>
-                    <?php
-                    if($antriHArian['datang'] == 1) {
-                      echo '<a class="btn btn-success" href="?url=adminantrian&datang='.$antriHArian['id_antrian'].'">Pasien Datang</a>';
-                    } else {
-                      echo '<i style="font-size:30px; color: blue;" class="glyphicon glyphicon-ok"></i>';
-                    }
-                    ?>
-                  </th>
+                  <th><i style="font-size:30px; color: blue;" class="glyphicon glyphicon-ok"></i></th>
                   <th>
                     <?php
                     if($antriHArian['periksa'] == 1) {
-                      echo '<i style="font-size:30px; color: red" class="glyphicon glyphicon-eye-close"></i>';
-                    } elseif($antriHArian['status'] == 2) {
-                      echo '<i style="font-size:30px; color: blue;" class="glyphicon glyphicon-ok"></i>';
+                      echo '<a class="btn btn-warning" href="?url=tulismedis&id='.$antriHArian['id_pasien'].'&periksa='.$antriHArian['id_antrian'].'&cek=true">Periksa Pasien</a>';
                     } else {
-                      echo '<img src="Library/images/default.gif">';
+                      echo '<a href="?url=tulismedis&id='.$antriHArian['id_pasien'].'&periksa='.$antriHArian['id_antrian'].'"><img src="Library/images/default.gif"></a>';
                     }
                     ?>
                   </th>

@@ -15,12 +15,14 @@
         <div class="panel panel-info">
           <div class="panel-heading" style="text-align:center">LOGIN ADMIN</div>
           <div class="panel-body">
-            <form class="form-group" action="index.html" method="post">
+            <form class="form-group" action="" method="post">
               <label for="username">Username</label>
               <input class="form-control" type="text" name="username" placeholder="Ketik Username">
               <hr style="margin-top:5px; margin-bottom:5px">
               <label for="password">Password</label>
               <input class="form-control" type="password" name="password" placeholder="Ketik Password">
+              <hr style="margin-top:5px; margin-bottom:5px">
+              <b style="color:red"><?php if(isset($pesan)) { echo $pesan; } ?></b>
               <hr>
               <input class="btn btn-success" type="submit" name="submitLogin" value="Login">
             </form>
