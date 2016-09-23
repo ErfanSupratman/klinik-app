@@ -80,7 +80,7 @@ class AntriModel {
   }
 
   public function cekRekMedis($id_pasien, $id_antrian, $tanggal, $bulan, $tahun, $datang, $periksa) {
-    $query = $this->panggilKoneksi->prepare("SELECT * FROM antrian_tb WHERE id_antrian = ? AND id_pasien = ? AND tanggal = ? AND bulan = ? AND tahun = ? AND datang = ? AND periksa = ?");
+    $query = $this->panggilKoneksi->prepare("SELECT * FROM antrian_tb WHERE id_pasien = ? AND id_antrian = ? AND tanggal = ? AND bulan = ? AND tahun = ? AND datang = ? AND periksa = ?");
     $data = array($id_pasien, $id_antrian, $tanggal, $bulan, $tahun, $datang, $periksa);
     $query->execute($data);
     $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)

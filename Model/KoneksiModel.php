@@ -7,7 +7,7 @@ class KoneksiModel {
   public $server_database = 'localhost';
   public $port_server = '3306';
   public $username_koneksi = 'root';
-  public $password_koneksi = 'mangaps';
+  public $password_koneksi = '';
 
   public function KoneksiDatabase() {
 
@@ -17,7 +17,7 @@ class KoneksiModel {
     } catch (Exception $ex) {
       return $ex;
     }
-    var_dump($this->koneksi);
+    //var_dump($this->koneksi);
   }
 
 }

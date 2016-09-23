@@ -24,12 +24,11 @@ if(isset($_SESSION['admin'])) {
       if($loginCek > 0) {
         $loginData = $adminModel->loginData($username, $password);
         foreach ($loginData as $dataAdmin) {
-          $_SESSION['admin'] = $dataAdmin['id_admin'].'#'.$dataAdmin['status'];
-          if($dataAdmin['status'] == 1) {
+          $_SESSION['admin'] = $dataAdmin['id_admin'].'#'.$dataAdmin['jabatan'];
+          if($dataAdmin['jabatan'] == 1) {
             header('location: ?url=adminantrian');
           } else {
-            echo "string";
-            //header('location: ?url=rekammedis');
+            header('location: ?url=rekammedis');
           }
         }
       } else {

@@ -15,21 +15,26 @@ if(isset($_SESSION['admin'])) {
   include_once 'Model/AntriModel.php';
   $antriModel = new AntriModel();
 
+  include_once 'Model/RekmedisModel.php';
+  $rekmedisModel = new RekmedisModel();
+
   $sekarang = date('Y-m-d');
   $sekarang = explode('-',$sekarang);
-  $tanggal = $sekarang[2];
-  $bulan = $sekarang[1];
+  $tanggal = number_format($sekarang[2]);
+  $bulan = number_format($sekarang[1]);
   $tahun = $sekarang[0];
 
   $id_pasien = $_GET['id'];
   $id_antrian = $_GET['periksa'];
 
+  // Cek Rekam medis
+  $getRekmedis = $rekmedisModel->getRekmedis($id_pasien);
+
   $cekRekMedis = $antriModel->cekRekMedis($id_pasien, $id_antrian, $tanggal, $bulan, $tahun, 2, 2);
   if($cekRekMedis > 0) {
 
   } else {
-    echo "string";
-    //header('location: ?url=rekammedis');
+    header('location: ?url=rekammedis');
   }
 
   $getPasienOkToday = $antriModel->getPasienOkToday($tanggal, $bulan, $tahun, 2, 2, 2);
@@ -38,9 +43,6 @@ if(isset($_SESSION['admin'])) {
     if(empty($_POST['tensi']) || empty($_POST['rekmedis'])) {
       $pesan = 'Kolom tidak boleh dikosongkan';
     } else {
-      include_once 'Model/RekmedisModel.php';
-      $rekmedisModel = new RekmedisModel();
-
       $id_pasien = $_GET['id'];
       $tensi = $_POST['tensi'];
       $diagnosa = $_POST['rekmedis'];

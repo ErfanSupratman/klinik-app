@@ -23,7 +23,7 @@
           <li><a href="?url=adminpasien"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin</a></li>
+          <li><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin & Dokter</a></li>
           <li class="active"><a href="?url=adminjadwaldokter"><i class="glyphicon glyphicon-calendar"></i> Jadwal Dokter</a></li>
           <li><a href="?url=adminlogout"><i class="glyphicon glyphicon-log-out"></i> Logout Admin</a></li>
         </ul>
@@ -35,7 +35,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="panel panel-info">
-          <div class="panel-heading" style="text-align:center">PENDAFTARAN PASIEN BARU</div>
+          <div class="panel-heading" style="text-align:center">JADWAL DOKTER</div>
           <div class="panel-body">
             <form class="form-group" action="" method="post">
               <label for="hari">Pilih Hari</label>
@@ -48,14 +48,17 @@
                 <option value="sabtu">Sabtu</option>
                 <option value="minggu">Minggu</option>
               </select>
-              <label for="namadokter">Nama Dokter</label>
-              <input class="form-control" type="text" name="namadokter" placeholder="Ketik Nama Dokter">
               <hr style="margin-top:5px; margin-bottom:5px">
-              <label for="username">Username</label>
-              <input class="form-control" type="text" name="username" placeholder="Ketik Username">
+              <label for="username">Pilih Dokter</label>
+              <select class="form-control" name="dokter">
+              <?php
+
+              foreach($getAllAdminData as $dokter) {
+                echo "<option value='".$dokter['id_admin']."'>".ucfirst($dokter['nama'])."</option>";
+              }
+              ?>
+              </select>
               <hr style="margin-top:5px; margin-bottom:5px">
-              <label for="password">Password</label>
-              <input class="form-control" type="password" name="password" placeholder="Ketik Password">
               <label for="jadwaljam">Jadwal Jam</label>
               <input class="form-control" type="time" name="jadwaljam1">
               <hr style="margin-top:5px; margin-bottom:5px">
@@ -77,10 +80,10 @@
           <div class="panel-heading" style="text-align:center">JADWAL DOKTER</div>
           <div class="panel-body">
             <?php
-            foreach ($getAllAdminData as $dataAdmin) {
+            foreach ($jadwalDokter as $jdwDokter) {
               ?>
-              <h5><span style="color: blue"><?php echo ucfirst($dataAdmin['nama']); ?></span> : <time style="color: red"><?php echo ucfirst($dataAdmin['jadwal']); ?></time>
-                <small><a href="?url=adminjadwaldokter&hapus=<?php echo $dataAdmin['id_admin']; ?>" class="glyphicon glyphicon-trash"></a></small>
+              <h5><span style="color: blue"><?php echo ucfirst($jdwDokter['nama']); ?></span> : <time style="color: red"><?php echo ucfirst($jdwDokter['jadwal']); ?></time>
+                <small><a href="?url=adminjadwaldokter&hapus=<?php echo $jdwDokter['id_jadwal']; ?>" class="glyphicon glyphicon-trash"></a></small>
               </h5>
               <hr style="margin-top:5px; margin-bottom:5px">
               <?php

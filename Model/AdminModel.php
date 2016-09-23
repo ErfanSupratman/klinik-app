@@ -39,9 +39,9 @@ class AdminModel {
     return $result;
   }
 
-  public function tambahAdmin($nama, $username, $password, $jabatan, $jadwal, $status, $sekarang) {
-    $query = $this->panggilKoneksi->prepare("INSERT INTO admin_tb (nama,username,password,jabatan,jadwal,status,sekarang) VALUES(?,?,?,?,?,?,?)");
-    $data = array($nama, $username, $password, $jabatan, $jadwal, $status, $sekarang);
+  public function tambahAdmin($nama, $username, $password, $jabatan, $status, $sekarang) {
+    $query = $this->panggilKoneksi->prepare("INSERT INTO admin_tb (nama,username,password,jabatan,status,sekarang) VALUES(?,?,?,?,?,?)");
+    $data = array($nama, $username, $password, $jabatan, $status, $sekarang);
     $query->execute($data);
     $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)
     return $result;

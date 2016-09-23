@@ -16,12 +16,13 @@ if(isset($_SESSION['admin'])) {
   $adminModel = new AdminModel();
 
   if(isset($_POST['submitRegAdmin'])) {
-    if(empty($_POST['nama']) || empty($_POST['username']) || empty($_POST['password'])) {
+    if(empty($_POST['nama']) || empty($_POST['status']) || empty($_POST['username']) || empty($_POST['password'])) {
       $pesan = 'Kolom tidak boleh kosong';
     } else {
       $nama = $_POST['nama'];
+      $status = $_POST['status'];
       $username = $_POST['username'];
-      $password = sha1($_POST['password'], TRUE);
+      $password = sha1($_POST['password']);
       $sekarang = date('Y-m-d h:i:s');
 
       $cekAdminByUsername = $adminModel->cekAdminByUsername($username, 1);
@@ -30,7 +31,7 @@ if(isset($_SESSION['admin'])) {
         $pesan = 'Username sudah terdaftar';
       } else {
         // Belum Ada
-        $tambahAdmin = $adminModel->tambahAdmin($nama, $username, $password, 1, null, 1, $sekarang);
+        $tambahAdmin = $adminModel->tambahAdmin($nama, $username, $password, $status, 1, $sekarang);
         if($tambahAdmin > 0) {
           header('location: ?url=admintambah&msg=Pendaftaran Admin Baru Berhasil!');
         } else {

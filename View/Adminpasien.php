@@ -24,7 +24,7 @@
           <li class="active"><a href="?url=adminpasien"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin</a></li>
+          <li class="active"><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin & Dokter</a></li>
           <li><a href="?url=adminjadwaldokter"><i class="glyphicon glyphicon-calendar"></i> Jadwal Dokter</a></li>
           <li><a href="?url=adminlogout"><i class="glyphicon glyphicon-log-out"></i> Logout Admin</a></li>
         </ul>

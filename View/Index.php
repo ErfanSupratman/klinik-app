@@ -120,26 +120,15 @@
         <div class="panel panel-info">
           <div class="panel-heading" style="text-align:center">JADWAL DOKTER</div>
           <div class="panel-body">
-            <h4>Senin</h4>
-            <time>07:00 s/d 12:00</time>
-            <hr>
-            <h4>Selas</h4>
-            <time>07:00 s/d 12:00</time>
-            <hr>
-            <h4>Rabu</h4>
-            <time>07:00 s/d 12:00</time>
-            <hr>
-            <h4>Kamis</h4>
-            <time>07:00 s/d 12:00</time>
-            <hr>
-            <h4>Jumat</h4>
-            <time>07:00 s/d 12:00</time>
-            <hr>
-            <h4>Sabtu</h4>
-            <time>07:00 s/d 12:00</time>
-            <hr>
-            <h4>Minggu</h4>
-            <time>07:00 s/d 12:00</time>
+          <?php
+            foreach ($jadwalDokter as $jdwDokter) {
+              ?>
+              <h4><?php echo 'dr.'.ucfirst($jdwDokter['nama'])?></h4>
+              <b><?php echo ucfirst($jdwDokter['jadwal'])?></b>
+              <hr>
+              <?php
+            }
+            ?>
           </div>
         </div>
       </div>

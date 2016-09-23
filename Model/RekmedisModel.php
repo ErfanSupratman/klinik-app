@@ -15,14 +15,6 @@ class RekmedisModel {
     return $this->panggilKoneksi;
   }
 
-  public function asasas($username, $status) {
-    $query = $this->panggilKoneksi->prepare("SELECT * FROM admin_tb WHERE username = ? AND status = ?");
-    $data = array($username, $status);
-    $query->execute($data);
-    $result = $query->rowCount(); // rowCount = untunk mengambil nilai dasar (0 /1)
-    return $result;
-  }
-
   public function tambahRekmedis($id_pasien, $tensi, $diagnosa, $status, $sekarang) {
     $query = $this->panggilKoneksi->prepare("INSERT INTO rekmedis_tb (id_pasien,tensi,diagnosa,status,sekarang) VALUES(?,?,?,?,?)");
     $data = array($id_pasien, $tensi, $diagnosa, $status, $sekarang);
@@ -31,12 +23,11 @@ class RekmedisModel {
     return $result;
   }
 
-  public function sasas($jabatan) {
-    $query = $this->panggilKoneksi->prepare("SELECT * FROM admin_tb WHERE jabatan = ?");
-    $data = array($jabatan);
+  public function getRekmedis($id) {
+    $query = $this->panggilKoneksi->prepare("SELECT * FROM rekmedis_tb WHERE id_pasien = ?");
+    $data = array($id);
     $query->execute($data);
     $result = $query->fetchAll();
     return $result;
   }
-
 }

@@ -56,17 +56,31 @@
       <div class="col-md-4">
         <div class="panel panel-info">
           <div class="panel-heading" style="text-align:center">
-            PASIEN TERTANGANI HARI INI <br>
+            REKAM MEDIS PASIEN <br>
             <?php echo strtoupper(date('l j F Y')); ?>
           </div>
           <div class="panel-body">
-            <?php
-            foreach ($getPasienOkToday as $todayPas) {
-              ?>
-              <h5><a href="#">ID:<?php echo  $todayPas['id_pasien']?></a> - <?php echo  $todayPas['nama']?> : <time><?php echo  $todayPas['waktu_periksa']?> s/d <?php echo  $todayPas['waktu_selesai']?></time>></h5>
-              <?php
-            }
-            ?>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            
+            <?php foreach($getRekmedis as $rekamMedis) { ?>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $rekamMedis['id_rekmedis']; ?>" aria-expanded="true" aria-controls="collapseOne">
+                    <?php echo $rekamMedis['sekarang']; ?>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapse<?php echo $rekamMedis['id_rekmedis']; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <h4>Tensi Darah : <?php echo $rekamMedis['tensi']; ?></h4>
+                  <?php echo $rekamMedis['diagnosa']; ?>.
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+
+          </div>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@
           <li><a href="?url=adminpasien"><i class="glyphicon glyphicon-user"></i> Data Pasien</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin</a></li>
+          <li class="active"><a href="?url=admintambah"><i class="glyphicon glyphicon-plus"></i> Tambah Admin & Dokter</a></li>
           <li><a href="?url=adminjadwaldokter"><i class="glyphicon glyphicon-calendar"></i> Jadwal Dokter</a></li>
           <li><a href="?url=adminlogout"><i class="glyphicon glyphicon-log-out"></i> Logout Admin</a></li>
         </ul>
@@ -41,6 +41,12 @@
               <label for="namadokter">Nama</label>
               <input class="form-control" type="text" name="nama" placeholder="Ketik Nama">
               <hr style="margin-top:5px; margin-bottom:5px">
+              <label for="namadokter">Status</label>
+              <select class="form-control" name="status">
+                <option value="1">Admin</option>
+                <option value="2">Dokter</option>
+              </select>
+              <hr style="margin-top:5px; margin-bottom:5px">
               <label for="username">Username</label>
               <input class="form-control" type="text" name="username" placeholder="Ketik Username">
               <hr style="margin-top:5px; margin-bottom:5px">
@@ -50,7 +56,7 @@
               <b style="color:red"><?php if(isset($pesan)) { echo $pesan; } ?></b>
               <b style="color:green"><?php if(isset($_GET['msg'])) { echo $_GET['msg']; } ?></b>
               <hr>
-              <input class="btn btn-success" type="submit" name="submitRegAdmin" value="Daftarkan Admin">
+              <input class="btn btn-success" type="submit" name="submitRegAdmin" value="Daftarkan">
             </form>
           </div>
         </div>
